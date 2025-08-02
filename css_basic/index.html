@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio Website</title>
+    <style>
+        /* Existing styles... */
+        
+        /* New table styles */
+        .learners-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .learners-table thead tr {
+            background-color: #1DA1F2;
+            color: white;
+            text-align: left;
+        }
+        
+        .learners-table th,
+        .learners-table td {
+            padding: 12px 15px;
+        }
+        
+        .learners-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        
+        .learners-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        
+        .learners-table tbody tr:last-of-type {
+            border-bottom: 2px solid #1DA1F2;
+        }
+        
+        .learners-table tbody tr:hover {
+            background-color: #e1f5fe;
+        }
+        
+        .table-container {
+            margin: 40px 0;
+        }
+        
+        .table-title {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tweets.html">Tweets</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <!-- Your existing content here... -->
+            
+            <div class="table-container">
+                <h2 class="table-title">Our Amazing Learners</h2>
+                <table class="learners-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>25</td>
+                            <td>USA</td>
+                        </tr>
+                        <tr>
+                            <td>Emily</td>
+                            <td>28</td>
+                            <td>Canada</td>
+                        </tr>
+                        <tr>
+                            <td>Michael</td>
+                            <td>32</td>
+                            <td>Australia</td>
+                        </tr>
+                        <tr>
+                            <td>Sophia</td>
+                            <td>21</td>
+                            <td>UK</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+        <aside>
+            <p>placeholder to add comment thread later</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>Made by Your Name - <a href="https://your-link.com" target="_blank">here</a></p>
+    </footer>
+</body>
+</html>
