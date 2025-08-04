@@ -1,0 +1,161 @@
+/* ===== Pentagon Styles ===== */
+.pentagon {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #FF6565, #E05555);
+    clip-path: polygon(
+        50% 0%,
+        100% 38%,
+        82% 100%,
+        18% 100%,
+        0% 38%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 10px 20px rgba(255, 101, 101, 0.3));
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pentagon::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: linear-gradient(135deg, #E05555, #FF6565);
+    clip-path: polygon(
+        50% 0%,
+        100% 38%,
+        82% 100%,
+        18% 100%,
+        0% 38%
+    );
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.pentagon-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    transform: translateZ(0);
+}
+
+.pentagon-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, transparent 70%);
+    clip-path: polygon(
+        50% 0%,
+        100% 38%,
+        82% 100%,
+        18% 100%,
+        0% 38%
+    );
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Content Styles */
+.pentagon .number {
+    font-size: 46px;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.pentagon .label {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    max-width: 100px;
+    margin: 0 auto;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Hover Effects */
+.card-result:hover .pentagon {
+    transform: translateY(-5px) scale(1.05);
+    filter: drop-shadow(0 15px 25px rgba(255, 101, 101, 0.4));
+}
+
+.card-result:hover .pentagon-glow {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes pentagonFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.pentagon {
+    animation: pentagonFadeIn 0.6s ease-out forwards, 
+               pentagonFloat 6s ease-in-out infinite;
+}
+
+@keyframes pentagonFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Staggered Animation */
+.row li:nth-child(1) .pentagon { animation-delay: 0.1s; }
+.row li:nth-child(2) .pentagon { animation-delay: 0.2s; }
+.row li:nth-child(3) .pentagon { animation-delay: 0.3s; }
+.row li:nth-child(4) .pentagon { animation-delay: 0.4s; }
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 992px) {
+    .pentagon {
+        width: 160px;
+        height: 160px;
+    }
+    .pentagon .number {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pentagon {
+        width: 140px;
+        height: 140px;
+        animation: pentagonFadeIn 0.6s ease-out forwards;
+    }
+    .pentagon .number {
+        font-size: 32px;
+    }
+    .pentagon .label {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pentagon {
+        width: 120px;
+        height: 120px;
+    }
+}
