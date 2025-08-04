@@ -1,35 +1,50 @@
 <!-- Contact Us Section -->
-<section class="section section-contact">
+<section class="section section-contact" id="contact">
     <div class="container">
         <header class="section-header">
             <h2 class="section-title">Contact us</h2>
         </header>
         <div class="section-body">
-            <form action="#" method="POST" class="contact-form">
+            <form class="contact-form" id="contactForm">
+                <!-- Name Field -->
                 <div class="form-group">
                     <input type="text" id="name" name="name" required 
-                           pattern="[A-Za-z ]{3,}" title="Please enter at least 3 letters"
+                           pattern="[A-Za-z ]{3,}" 
+                           title="Please enter at least 3 letters"
                            class="form-control">
                     <label for="name">Name</label>
-                    <span class="underline"></span>
+                    <div class="underline"></div>
+                    <span class="error-message"></span>
                 </div>
                 
+                <!-- Email Field -->
                 <div class="form-group">
                     <input type="email" id="email" name="email" required
                            class="form-control">
                     <label for="email">Email</label>
-                    <span class="underline"></span>
+                    <div class="underline"></div>
+                    <span class="error-message"></span>
                 </div>
                 
+                <!-- Message Field -->
                 <div class="form-group">
                     <textarea id="message" name="message" required
-                              minlength="10" maxlength="200"
+                              minlength="10" maxlength="300"
                               class="form-control"></textarea>
                     <label for="message">Your message</label>
-                    <span class="underline"></span>
+                    <div class="underline"></div>
+                    <span class="error-message"></span>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">CALL TO ACTION</button>
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">
+                    <span class="btn-text">CALL TO ACTION</span>
+                    <span class="btn-loader">
+                        <span class="loader-dot"></span>
+                        <span class="loader-dot"></span>
+                        <span class="loader-dot"></span>
+                    </span>
+                </button>
             </form>
         </div>
     </div>

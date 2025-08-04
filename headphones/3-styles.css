@@ -1,7 +1,7 @@
-/* Contact Section */
+/* ===== Contact Section ===== */
 .section-contact {
     padding: 100px 0;
-    text-align: center;
+    background-color: var(--color-white);
 }
 
 /* Form Styles */
@@ -13,48 +13,49 @@
 .form-group {
     position: relative;
     margin-bottom: 40px;
-    text-align: left;
 }
 
 .form-control {
     width: 100%;
-    padding: 10px 0;
+    padding: 12px 0;
     font-size: 16px;
+    color: var(--color-black);
     border: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
     outline: none;
     background: transparent;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .form-control:focus {
-    border-bottom-color: #FF6565;
-}
-
-.form-control:focus + label,
-.form-control:valid + label {
-    transform: translateY(-25px);
-    font-size: 12px;
-    color: #FF6565;
+    border-bottom-color: var(--color-primary);
 }
 
 label {
     position: absolute;
-    top: 10px;
+    top: 12px;
     left: 0;
-    color: #999;
-    transition: all 0.3s;
+    color: var(--color-grey);
+    font-size: 16px;
     pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus + label,
+.form-control:not(:placeholder-shown) + label {
+    transform: translateY(-25px);
+    font-size: 12px;
+    color: var(--color-primary);
 }
 
 .underline {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 2px;
     width: 0;
-    background-color: #FF6565;
-    transition: width 0.3s;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
 }
 
 .form-control:focus ~ .underline {
@@ -62,54 +63,128 @@ label {
 }
 
 textarea.form-control {
-    min-height: 100px;
+    min-height: 120px;
     resize: vertical;
+}
+
+.error-message {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #ff4444;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-group.invalid .error-message {
+    opacity: 1;
+}
+
+.form-group.invalid .form-control {
+    border-bottom-color: #ff4444;
+}
+
+.form-group.invalid label {
+    color: #ff4444;
 }
 
 /* Button Styles */
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: var(--color-white);
+    background-color: var(--color-primary);
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.btn-primary {
-    background-color: #FF6565;
-    color: white;
-}
-
-.btn-primary:hover {
+.btn:hover {
     background-color: #e05555;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 101, 101, 0.3);
 }
 
-/* Form Validation */
-input:invalid, textarea:invalid {
-    border-bottom-color: #ff9999;
+.btn-loader {
+    display: none;
+    position: absolute;
 }
 
-input:invalid + label, textarea:invalid + label {
-    color: #ff9999;
+.loader-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    animation: loader-bounce 1.4s infinite ease-in-out both;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.loader-dot:nth-child(1) {
+    animation-delay: -0.32s;
 }
 
+.loader-dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes loader-bounce {
+    0%, 80%, 100% { 
+        transform: scale(0);
+    } 
+    40% { 
+        transform: scale(1.0);
+    }
+}
+
+.btn.loading .btn-text {
+    visibility: hidden;
+}
+
+.btn.loading .btn-loader {
+    display: flex;
+}
+
+/* Form Animations */
 .form-group {
-    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .form-group:nth-child(1) { animation-delay: 0.1s; }
 .form-group:nth-child(2) { animation-delay: 0.2s; }
 .form-group:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success Message */
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

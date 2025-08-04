@@ -1,15 +1,16 @@
-/* Reset and Variables */
+/* ===== CSS Variables ===== */
 :root {
     --color-primary: #FF6565;
     --color-black: #090909;
     --color-white: #ffffff;
     --color-grey: #a0a0a0;
-    --color-light-grey: #f3f3f3;
-    --color-dark-grey: #353535;
-    --max-width: 1000px;
+    --font-main: 'Source Sans Pro', sans-serif;
 }
 
-* {
+/* ===== Base Reset ===== */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,13 +18,11 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 62.5%;
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: var(--color-black);
-    font-size: 1.6rem;
+    font-family: var(--font-main);
+    color: var(--color-white);
     line-height: 1.6;
 }
 
@@ -36,42 +35,23 @@ ul {
     list-style: none;
 }
 
-.btn {
-    display: inline-block;
-    padding: 1.5rem 3rem;
-    border-radius: 2.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-.btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-}
-
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
+/* ===== Utility Classes ===== */
 .container {
     width: 100%;
-    max-width: var(--max-width);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 20px;
 }
 
-/* Header/Hero Styles */
+/* ===== Header Styles ===== */
 .header {
-    background-image: url('images/headphones_hero_1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--color-white);
-    text-align: center;
-    padding: 3rem 0 15rem;
+    background: url('images/headphones_hero_1.jpg') no-repeat center center/cover;
+    min-height: 100vh;
     position: relative;
 }
 
@@ -80,72 +60,47 @@ ul {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 0;
 }
 
-.header > .container {
+.header .container {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Navigation */
+/* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10rem;
+    padding: 20px 0;
 }
 
-.header-logo img {
-    height: auto;
+.logo img {
+    height: 32px;
+    width: auto;
 }
 
-.nav-list {
+.nav-links {
     display: flex;
-    gap: 4rem;
+    gap: 40px;
 }
 
-.nav-item {
-    position: relative;
-}
-
-.nav-link {
-    font-size: 1.2rem;
-    font-weight: 600;
+.nav-links a {
+    font-size: 12px;
+    font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 
-.nav-link:hover {
+.nav-links a:hover {
     color: var(--color-primary);
-}
-
-/* Hero Content */
-.hero-content {
-    max-width: 70rem;
-    margin: 0 auto;
-}
-
-.hero-title {
-    font-size: 3.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.hero-subtitle {
-    font-size: 1.6rem;
-    margin-bottom: 4rem;
-    font-weight: 400;
-}
-
-.hero-text {
-    margin-top: 6rem;
-    font-size: 1.6rem;
-    line-height: 1.8;
 }
 
 /* Mobile Menu */
@@ -155,46 +110,115 @@ ul {
 
 .hamburger-menu {
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
     cursor: pointer;
 }
 
 .hamburger-line {
-    display: block;
-    width: 2.5rem;
-    height: 0.2rem;
+    width: 100%;
+    height: 3px;
     background-color: var(--color-white);
-    margin: 0.5rem 0;
     transition: all 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-list {
-        display: none;
-        position: absolute;
-        top: 8rem;
-        left: 0;
-        right: 0;
-        background-color: var(--color-dark-grey);
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 0;
-        gap: 2rem;
-    }
+/* Hero Content */
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-    .menu-toggle:checked ~ .nav-list {
+.hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 60px;
+}
+
+.cta-button:hover {
+    background-color: #e05555;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 101, 101, 0.3);
+}
+
+.hero-description {
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+    
+    .menu-toggle:checked ~ .nav-links {
         display: flex;
     }
-
+    
+    .menu-toggle:checked + .hamburger-menu .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-toggle:checked + .hamburger-menu .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle:checked + .hamburger-menu .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
     .hamburger-menu {
-        display: block;
+        display: flex;
     }
-
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        padding: 20px 0;
+    }
+    
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 28px;
     }
-
-    .hero-text {
-        font-size: 1.4rem;
+    
+    .hero-subtitle {
+        font-size: 14px;
+    }
+    
+    .hero-description {
+        font-size: 14px;
     }
 }

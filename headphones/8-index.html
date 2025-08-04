@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headphones - Responsive</title>
+    <link rel="stylesheet" href="8-styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Header with Enhanced Hamburger Menu -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <!-- Hidden checkbox for menu state -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true" tabindex="-1">
+                
+                <!-- Hamburger Icon -->
+                <label for="menu-toggle" class="hamburger-menu" aria-label="Toggle menu">
+                    <span class="hamburger-line hamburger-line--top"></span>
+                    <span class="hamburger-line hamburger-line--middle"></span>
+                    <span class="hamburger-line hamburger-line--bottom"></span>
+                </label>
+                
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="images/logo_headphones.png" alt="Headphones Logo" width="160">
+                </a>
+                
+                <!-- Navigation Links -->
+                <ul class="nav-links" id="main-nav">
+                    <li><a href="#what-we-do" class="nav-link">what we do</a></li>
+                    <li><a href="#results" class="nav-link">our results</a></li>
+                    <li><a href="#contact" class="nav-link">contact us</a></li>
+                </ul>
+                
+                <!-- Overlay for mobile -->
+                <div class="nav-overlay" id="nav-overlay"></div>
+            </nav>
+            
+            <!-- Hero content remains the same -->
+        </div>
+    </header>
+
+    <!-- Rest of your page content -->
+
+    <script src="8-script.js"></script>
+</body>
+</html>
