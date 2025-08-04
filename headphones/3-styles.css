@@ -1,0 +1,115 @@
+/* Contact Section */
+.section-contact {
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background: transparent;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-bottom-color: #FF6565;
+}
+
+.form-control:focus + label,
+.form-control:valid + label {
+    transform: translateY(-25px);
+    font-size: 12px;
+    color: #FF6565;
+}
+
+label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #999;
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #FF6565;
+    transition: width 0.3s;
+}
+
+.form-control:focus ~ .underline {
+    width: 100%;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #FF6565;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e05555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Form Validation */
+input:invalid, textarea:invalid {
+    border-bottom-color: #ff9999;
+}
+
+input:invalid + label, textarea:invalid + label {
+    color: #ff9999;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
