@@ -1,42 +1,73 @@
 /* styles.css */
 
-/* Make <body> a flex container, stacked vertically */
+/* ===== General Styling ===== */
 body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    /* Full viewport height */
+    background-color: #f0f2f5;
+    color: #333;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
     margin: 0;
 }
 
-/* Make <main> a flex container, arranged horizontally */
+/* ===== Header & Logo ===== */
+header {
+    background-color: #1e3a8a;
+    /* dark blue */
+    color: white;
+    padding: 1em;
+    text-align: left;
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* ===== Main Layout (keeps Flexbox rules) ===== */
 main {
     display: flex;
     flex-direction: row;
     flex: auto;
-    /* Take available space */
+    gap: 1em;
+    padding: 1em;
 }
 
-/* Article takes 2/3 of the width */
+/* Article styling */
 article {
     flex: 2;
     overflow-y: auto;
     padding: 1em;
-    background-color: #fff;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Aside takes 1/3 of the width */
+/* Sidebar styling */
 aside {
     flex: 1;
     overflow-y: auto;
     padding: 1em;
-    background-color: #f4f4f4;
+    background-color: #f9fafb;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Header and Footer styling */
-header,
+/* ===== Footer ===== */
 footer {
-    padding: 1em;
-    background-color: #ddd;
+    background-color: #1e3a8a;
+    color: white;
     text-align: center;
+    padding: 1em;
+    margin-top: auto;
+}
+
+/* ===== Links ===== */
+a {
+    color: #1e40af;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
 }
